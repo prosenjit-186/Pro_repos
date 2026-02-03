@@ -9,6 +9,8 @@
       background-color: #ffe6f0;
       text-align: center;
       padding-top: 100px;
+      margin: 0;
+      overflow: hidden;
     }
     h1 {
       color: #d6336c;
@@ -16,6 +18,7 @@
     }
     .buttons {
       margin-top: 40px;
+      position: relative;
     }
     button {
       font-size: 1.2em;
@@ -25,15 +28,16 @@
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.3s ease;
+      position: absolute;
     }
     #yesBtn {
       background-color: #ff6699;
       color: white;
+      position: static; /* keeps Yes button in place */
     }
     #noBtn {
       background-color: #cccccc;
       color: black;
-      position: absolute;
     }
   </style>
 </head>
@@ -48,15 +52,25 @@
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
 
-    noBtn.addEventListener('mouseover', () => {
+    function moveNoButton() {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
       const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
       noBtn.style.left = `${x}px`;
       noBtn.style.top = `${y}px`;
-    });
+    }
 
+    // Desktop hover
+    noBtn.addEventListener('mouseover', moveNoButton);
+
+    // Mobile touch
+    noBtn.addEventListener('touchstart', moveNoButton);
+
+    // Fallback click
+    noBtn.addEventListener('click', moveNoButton);
+
+    // Valentine alert
     yesBtn.addEventListener('click', () => {
-      alert("Yay! Happy Valentine's Day! 💘 You're the sweetest!");
+      alert("Happy Valentine's Day Thoi! 😊❣️");
     });
   </script>
 </body>
