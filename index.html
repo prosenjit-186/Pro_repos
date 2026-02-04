@@ -62,8 +62,8 @@
 
     /* Click Here button style (separate size) */
     .btn-link {
-      font-size: 1.6em;   /* slightly smaller */
-      padding: 15px 40px; /* adjusted padding */
+      font-size: 1.6em;   /* smaller than Yes/No */
+      padding: 15px 40px; /* smaller padding */
       border: none;
       border-radius: 12px;
       cursor: pointer;
@@ -95,7 +95,7 @@
   <h1>Will you be my Valentine?</h1>
   <div class="buttons">
     <button id="yesBtn" class="btn-main">Yes 💖</button>
-    <button id="noBtn" class="btn-main">No 😊</button>
+    <button id="noBtn" class="btn-main">No 😢</button>
   </div>
 
   <!-- Hidden message -->
@@ -111,13 +111,11 @@
     const linkBtn = document.getElementById('linkBtn');
 
     // Function for Yes/No buttons
-    function handleYesNoButtons() {
-      // Show Valentine message when Yes is clicked
+    function setupYesNoButtons() {
       yesBtn.addEventListener('click', () => {
-        message.style.display = "block";
+        message.style.display = "block"; // show the message + Click Here button
       });
 
-      // Move No button around playfully
       function moveNoButton() {
         const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
         const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -132,6 +130,16 @@
     }
 
     // Function for Click Here button
-    function handleClickHereButton() {
+    function setupClickHereButton() {
       linkBtn.addEventListener('click', () => {
         console.log("Click Here button pressed!");
+        // It already opens YouTube link via href
+      });
+    }
+
+    // Initialize both functions
+    setupYesNoButtons();
+    setupClickHereButton();
+  </script>
+</body>
+</html>
