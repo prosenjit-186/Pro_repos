@@ -23,7 +23,7 @@
 
     h1 {
       color: #d6336c;
-      font-size: 3.5em; /* bigger font */
+      font-size: 3.5em;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
     }
 
@@ -33,7 +33,7 @@
     }
 
     button {
-      font-size: 1.5em; /* bigger buttons */
+      font-size: 1.5em;
       padding: 15px 30px;
       margin: 15px;
       border: none;
@@ -46,7 +46,7 @@
     #yesBtn {
       background-color: #ff4d88;
       color: white;
-      position: static; /* keeps Yes button in place */
+      position: static;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
@@ -64,13 +64,9 @@
     <button id="noBtn">No 😢</button>
   </div>
 
-  <!-- Audio file -->
-  <audio id="valentineAudio" src="valentine.mp3"></audio>
-
   <script>
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
-    const audio = document.getElementById('valentineAudio');
 
     function moveNoButton() {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
@@ -88,10 +84,9 @@
     // Fallback click
     noBtn.addEventListener('click', moveNoButton);
 
-    // Valentine alert + audio
+    // Valentine alert + YouTube link
     yesBtn.addEventListener('click', () => {
-      alert("Happy Valentine's Day Thoi! 😊❣️");
-      audio.play();
+      alert("Happy Valentine's Day Thoi! 😊❣️\nClick here 👉 https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu");
     });
   </script>
 </body>
