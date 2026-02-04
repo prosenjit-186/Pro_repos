@@ -34,49 +34,32 @@
       margin-bottom: 60px;
     }
 
+    /* Attractive Yes/No buttons */
     .btn-main {
       font-size: 2em;
       padding: 20px 50px;
       border: none;
-      border-radius: 15px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: linear-gradient(45deg, #ff4d88, #ff80bf);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.4s ease;
     }
 
     .btn-main:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    }
-
-    #yesBtn {
-      background-color: #ff4d88;
-      color: white;
+      transform: scale(1.15) rotate(-2deg);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      background: linear-gradient(45deg, #ff80bf, #ff4d88);
     }
 
     #noBtn {
-      background-color: #cccccc;
+      background: linear-gradient(45deg, #cccccc, #999999);
       color: black;
-      position: relative;
     }
 
-    .btn-link {
-      font-size: 1.6em;
-      padding: 15px 40px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      background-color: #ff6699;
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn-link:hover {
-      background-color: #ff3366;
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    #noBtn:hover {
+      background: linear-gradient(45deg, #999999, #cccccc);
     }
 
     #message {
@@ -87,32 +70,49 @@
       margin-top: 40px;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     }
+
+    /* Magical Tap Here text */
+    #tapHere {
+      font-size: 2.2em;
+      font-family: 'Cursive', sans-serif;
+      color: #ff3366;
+      margin-top: 20px;
+      display: none;
+      animation: glowText 2s ease-in-out infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 5px #ff6699, 0 0 10px #ff99cc; opacity: 0.6; }
+      to   { text-shadow: 0 0 20px #ff3366, 0 0 30px #ff6699; opacity: 1; }
+    }
   </style>
 </head>
 <body>
   <h1>Will you be my Valentine?</h1>
   <div class="buttons">
-    <button id="yesBtn" class="btn-main">Yes 💖</button>
-    <button id="noBtn" class="btn-main">No 😢</button>
+    <button id="yesBtn" class="btn-main">Yes 💝</button>
+    <button id="noBtn" class="btn-main">No 😊</button>
   </div>
 
   <div id="message">
     Happy Valentine's Day Thoi! 😊❣️ <br>
-    <a id="linkBtn" class="btn-link" href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click Here</a>
+    <span id="tapHere"> Tap Here 💌</span>
   </div>
 
   <script>
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
     const message = document.getElementById('message');
-    const linkBtn = document.getElementById('linkBtn');
+    const tapHere = document.getElementById('tapHere');
 
-    let noClickCount = 0; // counter for No button
+    let noClickCount = 0;
 
     // Function for Yes/No buttons
     function setupYesNoButtons() {
       yesBtn.addEventListener('click', () => {
         message.style.display = "block";
+        tapHere.style.display = "inline-block"; // show Tap Here magically
       });
 
       function moveNoButton() {
@@ -133,15 +133,15 @@
       noBtn.addEventListener('click', moveNoButton);
     }
 
-    // Function for Click Here button
-    function setupClickHereButton() {
-      linkBtn.addEventListener('click', () => {
-        console.log("Click Here button pressed!");
+    // Function for Tap Here text
+    function setupTapHere() {
+      tapHere.addEventListener('click', () => {
+        window.open("https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu", "_blank");
       });
     }
 
     setupYesNoButtons();
-    setupClickHereButton();
+    setupTapHere();
   </script>
 </body>
 </html>
