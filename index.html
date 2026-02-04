@@ -6,38 +6,54 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #ffe6f0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       text-align: center;
       padding-top: 100px;
       margin: 0;
       overflow: hidden;
     }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
     h1 {
       color: #d6336c;
-      font-size: 2.5em;
+      font-size: 3.5em; /* bigger font */
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
     }
+
     .buttons {
-      margin-top: 40px;
+      margin-top: 50px;
       position: relative;
     }
+
     button {
-      font-size: 1.2em;
-      padding: 10px 20px;
-      margin: 10px;
+      font-size: 1.5em; /* bigger buttons */
+      padding: 15px 30px;
+      margin: 15px;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       position: absolute;
     }
+
     #yesBtn {
-      background-color: #ff6699;
+      background-color: #ff4d88;
       color: white;
       position: static; /* keeps Yes button in place */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+
     #noBtn {
       background-color: #cccccc;
       color: black;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
   </style>
 </head>
@@ -48,9 +64,13 @@
     <button id="noBtn">No 😢</button>
   </div>
 
+  <!-- Audio file -->
+  <audio id="valentineAudio" src="valentine.mp3"></audio>
+
   <script>
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
+    const audio = document.getElementById('valentineAudio');
 
     function moveNoButton() {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
@@ -68,9 +88,10 @@
     // Fallback click
     noBtn.addEventListener('click', moveNoButton);
 
-    // Valentine alert
+    // Valentine alert + audio
     yesBtn.addEventListener('click', () => {
       alert("Happy Valentine's Day Thoi! 😊❣️");
+      audio.play();
     });
   </script>
 </body>
