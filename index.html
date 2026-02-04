@@ -10,9 +10,12 @@
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       text-align: center;
-      padding-top: 100px;
       margin: 0;
-      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* centers content vertically */
+      align-items: center;
     }
 
     @keyframes gradientBG {
@@ -25,48 +28,63 @@
       color: #d6336c;
       font-size: 3.5em;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      margin-bottom: 40px;
     }
 
     .buttons {
-      margin-top: 50px;
-      position: relative;
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
     }
 
     button {
-      font-size: 1.5em;
-      padding: 15px 30px;
-      margin: 15px;
+      font-size: 1.8em;
+      padding: 20px 40px;
       border: none;
-      border-radius: 12px;
+      border-radius: 15px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      position: absolute;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
 
     #yesBtn {
       background-color: #ff4d88;
       color: white;
-      position: static;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     #noBtn {
       background-color: #cccccc;
       color: black;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: relative;
     }
 
     #message {
-      margin-top: 40px;
-      font-size: 1.5em;
+      font-size: 2em;
+      font-family: 'Cursive', sans-serif;
       color: #d6336c;
       display: none; /* hidden until Yes is clicked */
+      margin-top: 20px;
     }
 
-    #message a {
-      color: #ff0066;
+    #linkBtn {
+      margin-top: 20px;
+      font-size: 1.5em;
+      padding: 15px 30px;
+      background-color: #ff6699;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: bold;
+      display: inline-block;
+    }
+
+    #linkBtn:hover {
+      background-color: #ff3366;
     }
   </style>
 </head>
@@ -80,7 +98,7 @@
   <!-- Hidden message -->
   <div id="message">
     Happy Valentine's Day Thoi! 😊❣️ <br>
-    <a href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click here 👉</a>
+    <a id="linkBtn" href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click Here</a>
   </div>
 
   <script>
@@ -91,6 +109,7 @@
     function moveNoButton() {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
       const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.position = "absolute";
       noBtn.style.left = `${x}px`;
       noBtn.style.top = `${y}px`;
     }
@@ -104,7 +123,7 @@
     // Fallback click
     noBtn.addEventListener('click', moveNoButton);
 
-    // Show Valentine message + clickable link
+    // Show Valentine message + clickable button
     yesBtn.addEventListener('click', () => {
       message.style.display = "block";
     });
