@@ -11,7 +11,7 @@
       animation: gradientBG 15s ease infinite;
       text-align: center;
       margin: 0;
-      padding-top: 120px; /* start content just below your drawn line */
+      padding-top: 120px;
     }
 
     @keyframes gradientBG {
@@ -34,8 +34,9 @@
       margin-bottom: 60px;
     }
 
-    .btn {
-      font-size: 0.5em; /* SAME size for all buttons */
+    /* Yes/No button style */
+    .btn-main {
+      font-size: 2em;
       padding: 20px 50px;
       border: none;
       border-radius: 15px;
@@ -43,7 +44,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .btn:hover {
+    .btn-main:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
@@ -59,21 +60,32 @@
       position: relative;
     }
 
-    #linkBtn {
+    /* Click Here button style (separate size) */
+    .btn-link {
+      font-size: 1.6em;   /* slightly smaller */
+      padding: 15px 40px; /* adjusted padding */
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
       background-color: #ff6699;
       color: white;
       text-decoration: none;
+      display: inline-block;
+      margin-top: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    #linkBtn:hover {
+    .btn-link:hover {
       background-color: #ff3366;
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
 
     #message {
       font-size: 5em; /* BIGGER wish message */
       font-family: 'Cursive', sans-serif;
       color: #d6336c;
-      display: none; /* hidden until Yes is clicked */
+      display: none;
       margin-top: 40px;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     }
@@ -82,42 +94,44 @@
 <body>
   <h1>Will you be my Valentine?</h1>
   <div class="buttons">
-    <button id="yesBtn" class="btn">Yes 💖</button>
-    <button id="noBtn" class="btn">No 😊</button>
+    <button id="yesBtn" class="btn-main">Yes 💖</button>
+    <button id="noBtn" class="btn-main">No 😊</button>
   </div>
 
   <!-- Hidden message -->
   <div id="message">
     Happy Valentine's Day Thoi! 😊❣️ <br>
-    <a id="linkBtn" class="btn" href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click Here</a>
+    <a id="linkBtn" class="btn-link" href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click Here</a>
   </div>
 
   <script>
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
     const message = document.getElementById('message');
+    const linkBtn = document.getElementById('linkBtn');
 
-    function moveNoButton() {
-      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-      noBtn.style.position = "absolute";
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
+    // Function for Yes/No buttons
+    function handleYesNoButtons() {
+      // Show Valentine message when Yes is clicked
+      yesBtn.addEventListener('click', () => {
+        message.style.display = "block";
+      });
+
+      // Move No button around playfully
+      function moveNoButton() {
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+      }
+
+      noBtn.addEventListener('mouseover', moveNoButton);
+      noBtn.addEventListener('touchstart', moveNoButton);
+      noBtn.addEventListener('click', moveNoButton);
     }
 
-    // Desktop hover
-    noBtn.addEventListener('mouseover', moveNoButton);
-
-    // Mobile touch
-    noBtn.addEventListener('touchstart', moveNoButton);
-
-    // Fallback click
-    noBtn.addEventListener('click', moveNoButton);
-
-    // Show Valentine message + clickable button
-    yesBtn.addEventListener('click', () => {
-      message.style.display = "block";
-    });
-  </script>
-</body>
-</html>
+    // Function for Click Here button
+    function handleClickHereButton() {
+      linkBtn.addEventListener('click', () => {
+        console.log("Click Here button pressed!");
