@@ -11,7 +11,7 @@
       animation: gradientBG 15s ease infinite;
       text-align: center;
       margin: 0;
-      padding-top: 80px; /* start content from upper middle */
+      padding-top: 120px; /* start content just below your drawn line */
     }
 
     @keyframes gradientBG {
@@ -24,18 +24,18 @@
       color: #d6336c;
       font-size: 3.5em;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
       gap: 40px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
-    button {
-      font-size: 2em; /* bigger buttons */
+    .btn {
+      font-size: 2em; /* same size for all buttons */
       padding: 20px 45px;
       border: none;
       border-radius: 15px;
@@ -43,7 +43,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    button:hover {
+    .btn:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
@@ -59,24 +59,9 @@
       position: relative;
     }
 
-    #message {
-      font-size: 2.5em; /* bigger wish message */
-      font-family: 'Cursive', sans-serif;
-      color: #d6336c;
-      display: none; /* hidden until Yes is clicked */
-      margin-top: 30px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-    }
-
     #linkBtn {
-      margin-top: 25px;
-      font-size: 1.8em;
-      padding: 18px 35px;
       background-color: #ff6699;
       color: white;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
       text-decoration: none;
       display: inline-block;
     }
@@ -84,19 +69,28 @@
     #linkBtn:hover {
       background-color: #ff3366;
     }
+
+    #message {
+      font-size: 3em; /* bigger wish message */
+      font-family: 'Cursive', sans-serif;
+      color: #d6336c;
+      display: none; /* hidden until Yes is clicked */
+      margin-top: 30px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
   <h1>Will you be my Valentine?</h1>
   <div class="buttons">
-    <button id="yesBtn">Yes 💖</button>
-    <button id="noBtn">No 😊</button>
+    <button id="yesBtn" class="btn">Yes 💖</button>
+    <button id="noBtn" class="btn">No 😢</button>
   </div>
 
   <!-- Hidden message -->
   <div id="message">
     Happy Valentine's Day Thoi! 😊❣️ <br>
-    <a id="linkBtn" href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click Here</a>
+    <a id="linkBtn" class="btn" href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click Here</a>
   </div>
 
   <script>
