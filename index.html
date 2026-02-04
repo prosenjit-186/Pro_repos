@@ -11,11 +11,7 @@
       animation: gradientBG 15s ease infinite;
       text-align: center;
       margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* centers content vertically */
-      align-items: center;
+      padding-top: 80px; /* start content from upper middle */
     }
 
     @keyframes gradientBG {
@@ -33,13 +29,14 @@
 
     .buttons {
       display: flex;
-      gap: 30px;
-      margin-bottom: 40px;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 50px;
     }
 
     button {
-      font-size: 1.8em;
-      padding: 20px 40px;
+      font-size: 2em; /* bigger buttons */
+      padding: 20px 45px;
       border: none;
       border-radius: 15px;
       cursor: pointer;
@@ -63,17 +60,18 @@
     }
 
     #message {
-      font-size: 2em;
+      font-size: 2.5em; /* bigger wish message */
       font-family: 'Cursive', sans-serif;
       color: #d6336c;
       display: none; /* hidden until Yes is clicked */
-      margin-top: 20px;
+      margin-top: 30px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     }
 
     #linkBtn {
-      margin-top: 20px;
-      font-size: 1.5em;
-      padding: 15px 30px;
+      margin-top: 25px;
+      font-size: 1.8em;
+      padding: 18px 35px;
       background-color: #ff6699;
       color: white;
       border: none;
@@ -92,7 +90,7 @@
   <h1>Will you be my Valentine?</h1>
   <div class="buttons">
     <button id="yesBtn">Yes 💖</button>
-    <button id="noBtn">No 😢</button>
+    <button id="noBtn">No 😊</button>
   </div>
 
   <!-- Hidden message -->
