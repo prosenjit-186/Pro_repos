@@ -55,6 +55,19 @@
       color: black;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+
+    #message {
+      margin-top: 40px;
+      font-size: 1.5em;
+      color: #d6336c;
+      display: none; /* hidden until Yes is clicked */
+    }
+
+    #message a {
+      color: #ff0066;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -64,9 +77,16 @@
     <button id="noBtn">No 😢</button>
   </div>
 
+  <!-- Hidden message -->
+  <div id="message">
+    Happy Valentine's Day Thoi! 😊❣️ <br>
+    <a href="https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu" target="_blank">Click here 👉</a>
+  </div>
+
   <script>
     const noBtn = document.getElementById('noBtn');
     const yesBtn = document.getElementById('yesBtn');
+    const message = document.getElementById('message');
 
     function moveNoButton() {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
@@ -84,9 +104,9 @@
     // Fallback click
     noBtn.addEventListener('click', moveNoButton);
 
-    // Valentine alert + YouTube link
+    // Show Valentine message + clickable link
     yesBtn.addEventListener('click', () => {
-      alert("Happy Valentine's Day Thoi! 😊❣️\nClick here 👉 https://youtu.be/3-kedBuW1vo?si=cHdRhSMVKtbfboJu");
+      message.style.display = "block";
     });
   </script>
 </body>
