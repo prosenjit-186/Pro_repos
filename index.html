@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -89,15 +89,15 @@
   </style>
 </head>
 <body>
-  <h1>Will you be my Valentine?</h1>
-  <div class="buttons">
-    <button id="yesBtn" class="btn-main">Yes 💝</button>
-    <button id="noBtn" class="btn-main">No 😊</button>
+  <h1 id="question">Will you be my Valentine?</h1>
+  <div class="buttons" id="options">
+    <button id="yesBtn" class="btn-main">Yes 💖</button>
+    <button id="noBtn" class="btn-main">No 😢</button>
   </div>
 
   <div id="message">
-    Happy Valentine's Day! 😊❣️ <br>
-    <span id="tapHere"> Tap Here 💌</span>
+    Happy Valentine's Day Thoi! 😊❣️ <br>
+    <span id="tapHere">✨ Tap Here ✨</span>
   </div>
 
   <script>
@@ -105,19 +105,26 @@
     const yesBtn = document.getElementById('yesBtn');
     const message = document.getElementById('message');
     const tapHere = document.getElementById('tapHere');
+    const question = document.getElementById('question');
+    const options = document.getElementById('options');
 
     let noClickCount = 0;
 
     // Function for Yes/No buttons
     function setupYesNoButtons() {
       yesBtn.addEventListener('click', () => {
+        // Hide question + buttons
+        question.style.display = "none";
+        options.style.display = "none";
+
+        // Show Valentine message + Tap Here text
         message.style.display = "block";
-        tapHere.style.display = "inline-block"; // show Tap Here magically
+        tapHere.style.display = "inline-block";
       });
 
       function moveNoButton() {
         noClickCount++;
-        if (noClickCount >= 4) {
+        if (noClickCount >= 3) {
           noBtn.style.display = "none"; // hide after 3 interactions
           return;
         }
