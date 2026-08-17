@@ -5,7 +5,7 @@
   <title>Birthday Fun</title>
   <style>
     body {
-      background-color: #f1e610;
+      background-color: pink;
       text-align: center;
       padding-top: 100px;
       font-family: Arial, sans-serif;
@@ -15,32 +15,34 @@
       font-size: 2em;
     }
     button {
-      font-size: 16px;
-      padding: 10px 20px;
+      font-size: 18px; /* slightly zoomed in */
+      padding: 12px 24px;
       margin: 20px;
       cursor: pointer;
     }
     #birthday {
       display: none;
-      font-size: 24px;
+      font-size: 28px;
       color: purple;
       margin-top: 50px;
     }
   </style>
 </head>
 <body>
-  <h1>What did you think of yourself?</h1>
-  <div>
+  <h1 id="question">What did you think of yourself?</h1>
+  <div id="buttons">
     <button id="cute">Cute</button>
     <button id="ugly">Ugly</button>
   </div>
-  <div id="birthday">🎉 Happy Birthday! 🎂 Stay Cute Always 💖</div>
+  <div id="birthday">🎉 Happy Birthday Ishita! 🎂 Stay Cute Always 💖</div>
 
   <script>
     let uglyMoves = 0;
     const uglyBtn = document.getElementById("ugly");
     const cuteBtn = document.getElementById("cute");
     const birthdayMsg = document.getElementById("birthday");
+    const question = document.getElementById("question");
+    const buttonsDiv = document.getElementById("buttons");
 
     uglyBtn.addEventListener("click", () => {
       if (uglyMoves < 3) {
@@ -50,11 +52,15 @@
         uglyBtn.style.left = x + "px";
         uglyBtn.style.top = y + "px";
         uglyMoves++;
+      } else {
+        uglyBtn.style.display = "none"; // hide ugly button after 3 attempts
       }
     });
 
     cuteBtn.addEventListener("click", () => {
       birthdayMsg.style.display = "block";
+      question.style.display = "none";   // hide question
+      buttonsDiv.style.display = "none"; // hide buttons
     });
   </script>
 </body>
