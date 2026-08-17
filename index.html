@@ -8,15 +8,8 @@
       background-color: pink;
       text-align: center;
       padding-top: 100px;
-      font-family: 'Brush Script MT', cursive; /* stylish font */
-      background-image: url('https://i.ibb.co/7rYwYwM/cakes-hearts-background.png');
-      background-size: cover;
-      background-repeat: repeat;
-      animation: flow 30s linear infinite;
-    }
-    @keyframes flow {
-      from { background-position: 0 0; }
-      to { background-position: 1000px 1000px; }
+      font-family: 'Brush Script MT', cursive;
+      overflow: hidden;
     }
     h1 {
       color: #d6336c;
@@ -24,28 +17,62 @@
       font-family: Arial, sans-serif;
     }
     button {
-      font-size: 18px; /* slightly zoomed in */
-      padding: 12px 24px;
+      font-size: 20px;
+      padding: 14px 28px;
       margin: 20px;
       cursor: pointer;
+      border: none;
+      border-radius: 30px; /* rounded corners */
+      background: linear-gradient(45deg, #ff99cc, #ff66b2); /* gradient */
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
     }
     #birthday {
       display: none;
-      font-size: 40px; /* bigger message */
+      font-size: 80px; /* big stylish message */
       color: purple;
       margin-top: 50px;
       font-weight: bold;
-      text-shadow: 2px 2px 5px #fff;
+      text-shadow: 4px 4px 10px #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    /* Floating hearts and cakes */
+    .float {
+      position: absolute;
+      font-size: 40px;
+      animation: floatUp 12s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
     }
   </style>
 </head>
 <body>
-  <h1 id="question">What did you think of yourself?</h1>
+  <h1 id="question">What do you think of yourself?</h1>
   <div id="buttons">
     <button id="cute">Cute</button>
     <button id="ugly">Ugly</button>
   </div>
   <div id="birthday">🎉 Happy Birthday Ishita! 🎂💖</div>
+
+  <!-- Floating decorations -->
+  <div class="float" style="left:10%;">💖</div>
+  <div class="float" style="left:25%; animation-delay:2s;">🎂</div>
+  <div class="float" style="left:40%; animation-delay:4s;">💖</div>
+  <div class="float" style="left:60%; animation-delay:6s;">🎂</div>
+  <div class="float" style="left:80%; animation-delay:8s;">💖</div>
 
   <script>
     let uglyMoves = 0;
