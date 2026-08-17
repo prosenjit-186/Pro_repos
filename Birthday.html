@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Fun</title>
+  <style>
+    body {
+      background-color: #f1e610;
+      text-align: center;
+      padding-top: 100px;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #d6336c;
+      font-size: 2em;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    #birthday {
+      display: none;
+      font-size: 24px;
+      color: purple;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>What did you think of yourself?</h1>
+  <div>
+    <button id="cute">Cute</button>
+    <button id="ugly">Ugly</button>
+  </div>
+  <div id="birthday">🎉 Happy Birthday! 🎂 Stay Cute Always 💖</div>
+
+  <script>
+    let uglyMoves = 0;
+    const uglyBtn = document.getElementById("ugly");
+    const cuteBtn = document.getElementById("cute");
+    const birthdayMsg = document.getElementById("birthday");
+
+    uglyBtn.addEventListener("click", () => {
+      if (uglyMoves < 3) {
+        const x = Math.floor(Math.random() * 300);
+        const y = Math.floor(Math.random() * 200);
+        uglyBtn.style.position = "absolute";
+        uglyBtn.style.left = x + "px";
+        uglyBtn.style.top = y + "px";
+        uglyMoves++;
+      }
+    });
+
+    cuteBtn.addEventListener("click", () => {
+      birthdayMsg.style.display = "block";
+    });
+  </script>
+</body>
+</html>
