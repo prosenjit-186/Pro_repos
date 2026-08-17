@@ -13,25 +13,26 @@
     }
     h1 {
       color: #d6336c;
-      font-size: 2em;
+      font-size: 4em; /* doubled size */
       font-family: Arial, sans-serif;
+      margin-bottom: 40px;
     }
     button {
-      font-size: 20px;
-      padding: 14px 28px;
-      margin: 20px;
+      font-size: 40px; /* doubled size */
+      padding: 24px 48px;
+      margin: 30px;
       cursor: pointer;
       border: none;
-      border-radius: 30px; /* rounded corners */
+      border-radius: 40px; /* rounded corners */
       background: linear-gradient(45deg, #ff99cc, #ff66b2); /* gradient */
       color: white;
       font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     button:hover {
       transform: scale(1.1);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
     }
     #birthday {
       display: none;
@@ -62,8 +63,8 @@
 <body>
   <h1 id="question">What do you think of yourself?</h1>
   <div id="buttons">
-    <button id="cute">Cute</button>
-    <button id="ugly">Ugly</button>
+    <button id="cute">Cute 💖</button>
+    <button id="ugly">Ugly 🎂</button>
   </div>
   <div id="birthday">🎉 Happy Birthday Ishita! 🎂💖</div>
 
