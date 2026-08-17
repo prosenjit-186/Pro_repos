@@ -8,11 +8,20 @@
       background-color: pink;
       text-align: center;
       padding-top: 100px;
-      font-family: Arial, sans-serif;
+      font-family: 'Brush Script MT', cursive; /* stylish font */
+      background-image: url('https://i.ibb.co/7rYwYwM/cakes-hearts-background.png');
+      background-size: cover;
+      background-repeat: repeat;
+      animation: flow 30s linear infinite;
+    }
+    @keyframes flow {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
     }
     h1 {
       color: #d6336c;
       font-size: 2em;
+      font-family: Arial, sans-serif;
     }
     button {
       font-size: 18px; /* slightly zoomed in */
@@ -22,9 +31,11 @@
     }
     #birthday {
       display: none;
-      font-size: 28px;
+      font-size: 40px; /* bigger message */
       color: purple;
       margin-top: 50px;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px #fff;
     }
   </style>
 </head>
@@ -34,7 +45,7 @@
     <button id="cute">Cute</button>
     <button id="ugly">Ugly</button>
   </div>
-  <div id="birthday">🎉 Happy Birthday Ishita! 🎂 Stay Cute Always 💖</div>
+  <div id="birthday">🎉 Happy Birthday Ishita! 🎂💖</div>
 
   <script>
     let uglyMoves = 0;
